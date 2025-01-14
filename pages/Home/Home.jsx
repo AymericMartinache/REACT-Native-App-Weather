@@ -4,12 +4,13 @@ import { Text, View } from 'react-native';
 // STYLES
 import { styles } from './Home.style';
 
+// COMPONENTS
+import Meteo_basic from '../../components/Meteo_basic/Meteo_basic';
+
 export default function Home() {
     return (
         <View style={styles.container}>
-            <View style={styles.meteo_basic}>
-                <Text style={styles.text}>METEO</Text>
-            </View>
+            <Meteo_basic />
             <View style={styles.searchbar}>
                 <Text style={styles.text}>Search Bar</Text>
             </View>
