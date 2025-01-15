@@ -5,28 +5,26 @@ export const styles = StyleSheet.create({
 
     clock: {
         alignItems: 'flex-end',
+        fontSize: 14,
     },
 
     weather_label: {
         alignSelf: 'flex-end',
         transform: [{ rotate: '-90deg' }],
+        fontSize: 20,
     },
 
     temp_container: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'baseline',
-        borderWidth: 1,
     },
 
     temp: {
-        // borderWidth: 1,
         fontSize: 120,
     },
     image: {
         width: '100',
         height: '100',
-        // borderWidth: 1,
-        backgroundColor: 'gray',
     },
 });

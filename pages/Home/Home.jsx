@@ -17,6 +17,9 @@ import Meteo_basic from '../../components/Meteo_basic/Meteo_basic';
 import { useEffect, useState } from 'react';
 import { MeteoAPI } from '../../api/meteo';
 
+// SERVICES
+import { getWeatherInterpretation } from '../../services/meteo-service';
+
 export default function Home() {
     // STATES
     const [coords, setCoords] = useState();
@@ -35,6 +38,9 @@ export default function Home() {
         }
     }, [coords]);
 
+    const currentWeather = weather?.current_weather;
+    // console.log('Current weather : ', currentWeather.weathercode);
+
     // FUNCTIONS
     // Récupéraion des coordonnées GPS
     async function getUserCoords() {
@@ -48,6 +54,7 @@ export default function Home() {
                 lng: location.coords.longitude,
             });
 
+            console.log('Permission :', status);
             // Sinon on ajoute des valeurs par defaut
         } else {
             setCoords({
@@ -55,10 +62,8 @@ export default function Home() {
                 lng: '2.35',
             });
         }
-
-        // console.log('Permission :', status);
     }
-    // console.log('Location : ', coords);
+    console.log('Get User COORDS : ', coords);
 
     // Fetch de la météo
     async function fetchWeather(coordinates) {
@@ -70,18 +75,23 @@ export default function Home() {
     }
     // console.log('Weather : ', weather);
 
-    const temp = weather?.current_weather?.temperature;
-    // console.log('TEMP : ', temp);
-
-    return (
+    return currentWeather ? (
         <View style={styles.container}>
-            <Meteo_basic temp={temp ? temp : '-'} />
+            <Meteo_basic
+                temp={Math.round(currentWeather?.temperature)}
+                city={'TO DO !'}
+                interpretation={getWeatherInterpretation(
+                    currentWeather.weathercode
+                )}
+            />
+
             <View style={styles.searchbar}>
                 <Text style={styles.text}>Search Bar</Text>
             </View>
+
             <View style={styles.meteo_advanced}>
                 <Text style={styles.text}>Details</Text>
             </View>
         </View>
-    );
+    ) : null;
 }
