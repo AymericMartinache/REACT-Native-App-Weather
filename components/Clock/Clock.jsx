@@ -18,6 +18,7 @@ export default function Clock() {
             setTime(nowToHHMM());
         }, 1000);
 
+        // Nettoyage du setInterval
         return () => {
             clearInterval(interval);
         };

@@ -34,7 +34,7 @@ export default function App() {
         >
             <SafeAreaProvider>
                 <SafeAreaView style={styles.container}>
-                    <StatusBar style="dark" />
+                    <StatusBar style="light" />
                     {isFontLoaded ? <Home /> : null}
                 </SafeAreaView>
             </SafeAreaProvider>

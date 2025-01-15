@@ -2,6 +2,7 @@
 import axios from 'axios';
 
 export class MeteoAPI {
+    // Interprétation code météo
     static async fetchWeatherFromCoords(coords) {
         try {
             return (
@@ -11,6 +12,23 @@ export class MeteoAPI {
             ).data;
         } catch (error) {
             console.log(error);
+        }
+    }
+
+    // Récupération de la ville
+    static async fetchCityFromCoords(coords) {
+        try {
+            const {
+                address: { city, village, town },
+            } = (
+                await axios.get(
+                    `https://nominatim.openstreetmap.org/reverse?format=json&lat=${coords.lat}&lon=${coords.lng}`
+                )
+            ).data;
+
+            return city || village || town;
+        } catch (error) {
+            console.log('Error : ', error, 'Error message : ', error.message);
         }
     }
 }

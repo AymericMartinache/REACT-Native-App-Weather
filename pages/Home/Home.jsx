@@ -19,10 +19,12 @@ import { MeteoAPI } from '../../api/meteo';
 
 // SERVICES
 import { getWeatherInterpretation } from '../../services/meteo-service';
+import { fetchCityFromCoords } from '../../api/meteo';
 
 export default function Home() {
     // STATES
     const [coords, setCoords] = useState();
+    const [city, setCity] = useState();
     const [weather, setWeather] = useState();
 
     // USE EFFECT
@@ -34,16 +36,17 @@ export default function Home() {
     // Récupération des données
     useEffect(() => {
         if (coords) {
+            fetchCity(coords);
             fetchWeather(coords);
         }
     }, [coords]);
 
     const currentWeather = weather?.current_weather;
-    // console.log('Current weather : ', currentWeather.weathercode);
 
-    // FUNCTIONS
     // Récupéraion des coordonnées GPS
     async function getUserCoords() {
+        console.log('GET PERMISSIONS');
+
         let { status } = await requestForegroundPermissionsAsync();
 
         // On vérifie que l'utilisateur accèpte la géoloc
@@ -54,7 +57,7 @@ export default function Home() {
                 lng: location.coords.longitude,
             });
 
-            console.log('Permission :', status);
+            console.log('Permission => ', status);
             // Sinon on ajoute des valeurs par defaut
         } else {
             setCoords({
@@ -63,7 +66,6 @@ export default function Home() {
             });
         }
     }
-    console.log('Get User COORDS : ', coords);
 
     // Fetch de la météo
     async function fetchWeather(coordinates) {
@@ -72,13 +74,22 @@ export default function Home() {
             coordinates
         );
         setWeather(weatherResponse);
+        console.log('Weather response => ', weatherResponse.current_weather);
     }
+
+    // Fetch de la ville
+    async function fetchCity(coordinates) {
+        console.log('FETCH CITY');
+        const cityResponse = await MeteoAPI.fetchCityFromCoords(coordinates);
+        setCity(cityResponse);
+    }
+    console.log('City => ', city);
 
     return currentWeather ? (
         <View style={styles.container}>
             <Meteo_basic
                 temp={Math.round(currentWeather?.temperature)}
-                city={'TO DO !'}
+                city={city}
                 interpretation={getWeatherInterpretation(
                     currentWeather.weathercode
                 )}

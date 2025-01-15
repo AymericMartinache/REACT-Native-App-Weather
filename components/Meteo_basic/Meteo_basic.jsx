@@ -9,7 +9,7 @@ import Txt from '../Txt/Txt';
 import Clock from '../Clock/Clock';
 
 export default function Meteo_basic({ temp, city, interpretation }) {
-    console.log('Interpretation : ', interpretation);
+    // console.log('Interpretation : ', interpretation);
 
     return (
         <>
