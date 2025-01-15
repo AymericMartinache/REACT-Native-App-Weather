@@ -2,7 +2,9 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-    container: {},
+    city: {
+        fontSize: 50,
+    },
 
     clock: {
         alignItems: 'flex-end',

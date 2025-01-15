@@ -10,6 +10,6 @@ export const styles = StyleSheet.create({
         padding: 20,
     },
     img: {
-        opacity: 0.6,
+        opacity: 0.7,
     },
 });

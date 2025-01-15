@@ -19,7 +19,7 @@ import { MeteoAPI } from '../../api/meteo';
 
 // SERVICES
 import { getWeatherInterpretation } from '../../services/meteo-service';
-import { fetchCityFromCoords } from '../../api/meteo';
+import Meteo_advanced from '../../components/Meteo_advanced/Meteo_advanced';
 
 export default function Home() {
     // STATES
@@ -74,7 +74,6 @@ export default function Home() {
             coordinates
         );
         setWeather(weatherResponse);
-        console.log('Weather response => ', weatherResponse.current_weather);
     }
 
     // Fetch de la ville
@@ -83,7 +82,6 @@ export default function Home() {
         const cityResponse = await MeteoAPI.fetchCityFromCoords(coordinates);
         setCity(cityResponse);
     }
-    console.log('City => ', city);
 
     return currentWeather ? (
         <View style={styles.container}>
@@ -93,6 +91,7 @@ export default function Home() {
                 interpretation={getWeatherInterpretation(
                     currentWeather.weathercode
                 )}
+                style={styles.basic}
             />
 
             <View style={styles.searchbar}>
@@ -100,7 +99,7 @@ export default function Home() {
             </View>
 
             <View style={styles.meteo_advanced}>
-                <Text style={styles.text}>Details</Text>
+                <Meteo_advanced />
             </View>
         </View>
     ) : null;

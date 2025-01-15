@@ -8,16 +8,16 @@ import { styles } from './Meteo_basic.style';
 import Txt from '../Txt/Txt';
 import Clock from '../Clock/Clock';
 
-export default function Meteo_basic({ temp, city, interpretation }) {
+export default function Meteo_basic({ temp, city, interpretation, style }) {
     // console.log('Interpretation : ', interpretation);
 
     return (
-        <>
+        <View style={style}>
             <View style={styles.clock}>
                 <Clock />
             </View>
 
-            <Txt>{city}</Txt>
+            <Txt style={styles.city}>{city}</Txt>
 
             <Txt style={styles.weather_label}>{interpretation.label}</Txt>
 
@@ -25,6 +25,6 @@ export default function Meteo_basic({ temp, city, interpretation }) {
                 <Txt style={styles.temp}>{temp}°</Txt>
                 <Image style={styles.image} source={interpretation.image} />
             </View>
-        </>
+        </View>
     );
 }
