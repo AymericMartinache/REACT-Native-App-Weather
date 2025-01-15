@@ -6,6 +6,7 @@ import { styles } from './Meteo_basic.style';
 
 // COMPONENTS
 import Txt from '../Txt/Txt';
+import Clock from '../Clock/Clock';
 
 export default function Meteo_basic({ temp, city, interpretation }) {
     console.log('Interpretation : ', interpretation);
@@ -13,7 +14,7 @@ export default function Meteo_basic({ temp, city, interpretation }) {
     return (
         <>
             <View style={styles.clock}>
-                <Txt style={styles.clock}>Clock</Txt>
+                <Clock />
             </View>
 
             <Txt>{city}</Txt>

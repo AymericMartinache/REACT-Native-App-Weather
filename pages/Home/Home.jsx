@@ -73,7 +73,6 @@ export default function Home() {
         );
         setWeather(weatherResponse);
     }
-    // console.log('Weather : ', weather);
 
     return currentWeather ? (
         <View style={styles.container}>
