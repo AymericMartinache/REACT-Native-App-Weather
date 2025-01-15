@@ -2,7 +2,7 @@
 import { StatusBar } from 'expo-status-bar';
 
 // REACT NATIVE
-import { ImageBackground, Text, View } from 'react-native';
+import { ImageBackground } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 // STYLES

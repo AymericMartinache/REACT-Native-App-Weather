@@ -15,24 +15,29 @@ import Meteo_basic from '../../components/Meteo_basic/Meteo_basic';
 
 // REACT
 import { useEffect, useState } from 'react';
+import { MeteoAPI } from '../../api/meteo';
 
 export default function Home() {
     // STATES
     const [coords, setCoords] = useState();
+    const [weather, setWeather] = useState();
 
     // USE EFFECT
     // Récupérations des coordonnées
     useEffect(() => {
-        getUserCoord();
+        getUserCoords();
     }, []);
 
     useEffect(() => {
-        fetchWeather();
+        if (coords) {
+            fetchWeather(coords);
+        }
     }, [coords]);
 
     // Récupéraion des coordonnées GPS
-    async function getUserCoord() {
+    async function getUserCoords() {
         let { status } = await requestForegroundPermissionsAsync();
+
         // On vérifie que l'utilisateur accèpte la géoloc
         if (status === 'granted') {
             const location = await getCurrentPositionAsync();
@@ -45,20 +50,23 @@ export default function Home() {
         } else {
             setCoords({
                 lat: '48.8555555',
-                lng: '2,35',
+                lng: '2.35',
             });
         }
 
         console.log('Permission :', status);
     }
-
     console.log('Location : ', coords);
 
     // Fetch de la météo
     async function fetchWeather(coordinates) {
-        // fetch
         console.log('FETCH WEATHER');
+        const weatherResponse = await MeteoAPI.fetchWeatherFromCoords(
+            coordinates
+        );
+        setWeather(weatherResponse);
     }
+    console.log('Weather : ', weather);
 
     return (
         <View style={styles.container}>
