@@ -1,5 +1,6 @@
 // REACT NATIVE
 import { Text, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 // EXPO
 import {
@@ -20,12 +21,15 @@ import { MeteoAPI } from '../../api/meteo';
 
 // SERVICES
 import { getWeatherInterpretation } from '../../services/meteo-service';
+import { Container } from '../../components/Container/Container';
 
 export default function Home() {
     // STATES
     const [coords, setCoords] = useState();
     const [city, setCity] = useState();
     const [weather, setWeather] = useState();
+
+    const nav = useNavigation();
 
     // USE EFFECT
     // Récupérations des coordonnées
@@ -83,28 +87,38 @@ export default function Home() {
         setCity(cityResponse);
     }
 
+    function goToForecastPage() {
+        nav.navigate('Forecast', {
+            city,
+            ...weather.daily,
+        });
+    }
+
     return currentWeather ? (
-        <View style={styles.container}>
-            <Meteo_basic
-                temp={Math.round(currentWeather?.temperature)}
-                city={city}
-                interpretation={getWeatherInterpretation(
-                    currentWeather.weathercode
-                )}
-                style={styles.basic}
-            />
-
-            <View style={styles.searchbar}>
-                <Text style={styles.text}>Search Bar</Text>
-            </View>
-
-            <View style={styles.meteo_advanced}>
-                <Meteo_advanced
-                    wind={currentWeather.windspeed}
-                    dusk={weather.daily.sunrise[0].split('T')[1]}
-                    down={weather.daily.sunset[0].split('T')[1]}
+        <Container>
+            <View style={styles.container}>
+                <Meteo_basic
+                    style={styles.basic}
+                    temp={Math.round(currentWeather?.temperature)}
+                    city={city}
+                    interpretation={getWeatherInterpretation(
+                        currentWeather.weathercode
+                    )}
+                    onPress={goToForecastPage}
                 />
+
+                <View style={styles.searchbar}>
+                    <Text style={styles.text}>Search Bar</Text>
+                </View>
+
+                <View style={styles.meteo_advanced}>
+                    <Meteo_advanced
+                        wind={currentWeather.windspeed}
+                        dusk={weather.daily.sunrise[0].split('T')[1]}
+                        down={weather.daily.sunset[0].split('T')[1]}
+                    />
+                </View>
             </View>
-        </View>
+        </Container>
     ) : null;
 }

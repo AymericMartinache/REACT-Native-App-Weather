@@ -1,22 +1,24 @@
 // EXPO
 import { StatusBar } from 'expo-status-bar';
 
-// REACT NATIVE
-import { ImageBackground } from 'react-native';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-
-// STYLES
-import { styles } from './App.style';
-
 // EXPO FONTS
 import { useFonts } from 'expo-font';
 import AlataRegular from './assets/fonts/Alata-Regular.ttf';
 
-// ASSETS
-import background from './assets/img/background-app.png';
+// NAVIGATION
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // COMPONENTS
 import Home from './pages/Home/Home';
+import Forecast from './pages/Forecast/Forecast';
+
+const Stack = createNativeStackNavigator();
+const newTheme = {
+    colors: {
+        background: 'transparent',
+    },
+};
 
 export default function App() {
     // FONTS
@@ -27,17 +29,21 @@ export default function App() {
     console.log('Font loaded : ', isFontLoaded);
 
     return (
-        <ImageBackground
-            source={background}
-            style={styles.background_img}
-            imageStyle={styles.img}
-        >
-            <SafeAreaProvider>
-                <SafeAreaView style={styles.container}>
-                    <StatusBar style="light" />
-                    {isFontLoaded ? <Home /> : null}
-                </SafeAreaView>
-            </SafeAreaProvider>
-        </ImageBackground>
+        <NavigationContainer theme={newTheme}>
+            <StatusBar style="light" />
+            {isFontLoaded ? (
+                <Stack.Navigator
+                    initialRouteName="Home"
+                    screenOptions={{
+                        headerShown: false,
+                        animation: 'slide_from_bottom',
+                    }}
+                >
+                    {/* Pages */}
+                    <Stack.Screen name="Home" component={Home} />
+                    <Stack.Screen name="Forecast" component={Forecast} />
+                </Stack.Navigator>
+            ) : null}
+        </NavigationContainer>
     );
 }
