@@ -3,7 +3,6 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 10,
     },
     text: {
         fontSize: 60,
@@ -15,13 +14,11 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderWidth: 1,
-        margin: 5,
     },
     meteo_advanced: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
         borderWidth: 1,
-        margin: 5,
     },
 });

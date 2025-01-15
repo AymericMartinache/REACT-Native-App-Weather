@@ -28,12 +28,14 @@ export default function Home() {
         getUserCoords();
     }, []);
 
+    // Récupération des données
     useEffect(() => {
         if (coords) {
             fetchWeather(coords);
         }
     }, [coords]);
 
+    // FUNCTIONS
     // Récupéraion des coordonnées GPS
     async function getUserCoords() {
         let { status } = await requestForegroundPermissionsAsync();
