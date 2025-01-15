@@ -2,6 +2,8 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
+    container: {},
+
     city: {
         fontSize: 50,
     },
@@ -26,6 +28,7 @@ export const styles = StyleSheet.create({
     temp: {
         fontSize: 120,
     },
+
     image: {
         width: '100',
         height: '100',

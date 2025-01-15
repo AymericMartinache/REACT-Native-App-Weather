@@ -26,6 +26,7 @@ export const WEATHER_INTERPRATIONS = [
     },
 ];
 
+// Récupère l'interprétation avec le code weather
 export function getWeatherInterpretation(code) {
     return WEATHER_INTERPRATIONS.find((interpretation) =>
         interpretation.codes.includes(code)

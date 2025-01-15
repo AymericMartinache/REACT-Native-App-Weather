@@ -9,10 +9,8 @@ import Txt from '../Txt/Txt';
 import Clock from '../Clock/Clock';
 
 export default function Meteo_basic({ temp, city, interpretation, style }) {
-    // console.log('Interpretation : ', interpretation);
-
     return (
-        <View style={style}>
+        <View style={styles.container}>
             <View style={styles.clock}>
                 <Clock />
             </View>

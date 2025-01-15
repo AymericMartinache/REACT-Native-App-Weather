@@ -9,21 +9,21 @@ import {
     styles,
 } from './Meteo_advanced.style';
 
-export default function Meteo_advanced() {
+export default function Meteo_advanced({ dusk, down, wind }) {
     return (
         <View style={styles.container}>
             <StyledContainer>
-                <StyledValue>Heure</StyledValue>
+                <StyledValue>{dusk}</StyledValue>
                 <StyledLabel>Aube</StyledLabel>
             </StyledContainer>
 
             <StyledContainer>
-                <StyledValue>Heure</StyledValue>
+                <StyledValue>{down}</StyledValue>
                 <StyledLabel>Crépuscule</StyledLabel>
             </StyledContainer>
 
             <StyledContainer>
-                <StyledValue>Vitesse</StyledValue>
+                <StyledValue>{wind} km/h</StyledValue>
                 <StyledLabel>Vent</StyledLabel>
             </StyledContainer>
         </View>

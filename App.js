@@ -9,8 +9,8 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { styles } from './App.style';
 
 // EXPO FONTS
-import AlataRegular from './assets/fonts/Alata-Regular.ttf';
 import { useFonts } from 'expo-font';
+import AlataRegular from './assets/fonts/Alata-Regular.ttf';
 
 // ASSETS
 import background from './assets/img/background-app.png';

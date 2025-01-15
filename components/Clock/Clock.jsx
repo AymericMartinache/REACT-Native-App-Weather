@@ -1,3 +1,6 @@
+// REACT
+import { useEffect, useState } from 'react';
+
 // STYLES
 import { styles } from './Clock.style';
 
@@ -6,7 +9,6 @@ import Txt from '../Txt/Txt';
 
 // SERVICES
 import { nowToHHMM } from '../../services/date-service';
-import { useEffect, useState } from 'react';
 
 export default function Clock() {
     // STATES
@@ -18,7 +20,7 @@ export default function Clock() {
             setTime(nowToHHMM());
         }, 1000);
 
-        // Nettoyage du setInterval
+        // Nettoyage du setInterval au démontage du composant
         return () => {
             clearInterval(interval);
         };

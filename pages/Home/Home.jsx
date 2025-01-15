@@ -12,6 +12,7 @@ import { styles } from './Home.style';
 
 // COMPONENTS
 import Meteo_basic from '../../components/Meteo_basic/Meteo_basic';
+import Meteo_advanced from '../../components/Meteo_advanced/Meteo_advanced';
 
 // REACT
 import { useEffect, useState } from 'react';
@@ -19,7 +20,6 @@ import { MeteoAPI } from '../../api/meteo';
 
 // SERVICES
 import { getWeatherInterpretation } from '../../services/meteo-service';
-import Meteo_advanced from '../../components/Meteo_advanced/Meteo_advanced';
 
 export default function Home() {
     // STATES
@@ -99,7 +99,11 @@ export default function Home() {
             </View>
 
             <View style={styles.meteo_advanced}>
-                <Meteo_advanced />
+                <Meteo_advanced
+                    wind={currentWeather.windspeed}
+                    dusk={weather.daily.sunrise[0].split('T')[1]}
+                    down={weather.daily.sunset[0].split('T')[1]}
+                />
             </View>
         </View>
     ) : null;

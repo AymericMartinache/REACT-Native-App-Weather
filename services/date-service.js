@@ -1,3 +1,4 @@
+// Récupère l'heure actuelle
 export function nowToHHMM() {
     const date = new Date();
 
