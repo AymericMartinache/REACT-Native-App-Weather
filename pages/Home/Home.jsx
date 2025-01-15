@@ -54,7 +54,7 @@ export default function Home() {
             });
         }
 
-        console.log('Permission :', status);
+        // console.log('Permission :', status);
     }
     // console.log('Location : ', coords);
 
@@ -66,10 +66,10 @@ export default function Home() {
         );
         setWeather(weatherResponse);
     }
-    console.log('Weather : ', weather);
+    // console.log('Weather : ', weather);
 
     const temp = weather?.current_weather?.temperature;
-    console.log('TEMP : ', temp);
+    // console.log('TEMP : ', temp);
 
     return (
         <View style={styles.container}>
