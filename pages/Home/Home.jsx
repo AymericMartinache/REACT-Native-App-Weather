@@ -56,7 +56,7 @@ export default function Home() {
 
         console.log('Permission :', status);
     }
-    console.log('Location : ', coords);
+    // console.log('Location : ', coords);
 
     // Fetch de la météo
     async function fetchWeather(coordinates) {
@@ -68,9 +68,12 @@ export default function Home() {
     }
     console.log('Weather : ', weather);
 
+    const temp = weather?.current_weather?.temperature;
+    console.log('TEMP : ', temp);
+
     return (
         <View style={styles.container}>
-            <Meteo_basic />
+            <Meteo_basic temp={temp ? temp : '-'} />
             <View style={styles.searchbar}>
                 <Text style={styles.text}>Search Bar</Text>
             </View>
