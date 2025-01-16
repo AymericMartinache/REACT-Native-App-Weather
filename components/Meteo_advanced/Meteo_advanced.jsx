@@ -9,7 +9,7 @@ import {
     styles,
 } from './Meteo_advanced.style';
 
-export default function Meteo_advanced({ dusk, down, wind }) {
+export default function Meteo_advanced({ dusk, dawn, wind }) {
     return (
         <View style={styles.container}>
             <StyledContainer>
@@ -18,7 +18,7 @@ export default function Meteo_advanced({ dusk, down, wind }) {
             </StyledContainer>
 
             <StyledContainer>
-                <StyledValue>{down}</StyledValue>
+                <StyledValue>{dawn}</StyledValue>
                 <StyledLabel>Crépuscule</StyledLabel>
             </StyledContainer>
 

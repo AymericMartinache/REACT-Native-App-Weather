@@ -1,24 +1,12 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-
-    text: {
-        fontSize: 60,
-        color: '#F1F1F1',
-    },
-
-    basic: { flex: 1 },
-
-    searchbar: {
+    meteo_basic: {
         flex: 2,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderWidth: 2,
     },
-
+    searchbar_container: {
+        flex: 2,
+    },
     meteo_advanced: {
         flex: 1,
     },

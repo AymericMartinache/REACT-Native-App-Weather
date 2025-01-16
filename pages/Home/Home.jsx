@@ -15,6 +15,7 @@ import { styles } from './Home.style';
 import Meteo_basic from '../../components/Meteo_basic/Meteo_basic';
 import Meteo_advanced from '../../components/Meteo_advanced/Meteo_advanced';
 import Container from '../../components/Container/Container';
+import Searchbar from '../../components/Searchbar/Searchbar';
 
 // REACT
 import { useEffect, useState } from 'react';
@@ -95,31 +96,32 @@ export default function Home() {
         });
     }
 
-    return currentWeather ? (
+    return (
         <Container>
-            <View style={styles.container}>
-                <Meteo_basic
-                    style={styles.basic}
-                    temp={Math.round(currentWeather?.temperature)}
-                    city={city}
-                    interpretation={getWeatherInterpretation(
-                        currentWeather.weathercode
-                    )}
-                    onPress={goToForecastPage}
-                />
-
-                <View style={styles.searchbar}>
-                    <Text style={styles.text}>Search Bar</Text>
-                </View>
-
-                <View style={styles.meteo_advanced}>
-                    <Meteo_advanced
-                        wind={currentWeather.windspeed}
-                        dusk={weather.daily.sunrise[0].split('T')[1]}
-                        down={weather.daily.sunset[0].split('T')[1]}
-                    />
-                </View>
-            </View>
+            {currentWeather ? (
+                <>
+                    <View style={styles.meteo_basic}>
+                        <Meteo_basic
+                            temp={Math.round(currentWeather?.temperature)}
+                            city={city}
+                            interpretation={getWeatherInterpretation(
+                                currentWeather.weathercode
+                            )}
+                            onPress={goToForecastPage}
+                        />
+                    </View>
+                    <View style={styles.searchbar_container}>
+                        <Searchbar />
+                    </View>
+                    <View style={styles.meteo_advanced}>
+                        <Meteo_advanced
+                            wind={currentWeather.windspeed}
+                            dusk={weather.daily.sunrise[0].split('T')[1]}
+                            dawn={weather.daily.sunset[0].split('T')[1]}
+                        />
+                    </View>
+                </>
+            ) : null}
         </Container>
-    ) : null;
+    );
 }
