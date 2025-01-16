@@ -14,6 +14,7 @@ import { styles } from './Home.style';
 // COMPONENTS
 import Meteo_basic from '../../components/Meteo_basic/Meteo_basic';
 import Meteo_advanced from '../../components/Meteo_advanced/Meteo_advanced';
+import Container from '../../components/Container/Container';
 
 // REACT
 import { useEffect, useState } from 'react';
@@ -21,7 +22,6 @@ import { MeteoAPI } from '../../api/meteo';
 
 // SERVICES
 import { getWeatherInterpretation } from '../../services/meteo-service';
-import { Container } from '../../components/Container/Container';
 
 export default function Home() {
     // STATES

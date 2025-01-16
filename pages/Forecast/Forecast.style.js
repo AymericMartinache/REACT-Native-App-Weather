@@ -18,4 +18,13 @@ export const styles = StyleSheet.create({
     subtitle: {
         fontSize: 20,
     },
+
+    forecastList: {
+        marginTop: 50,
+        padding: 10,
+        borderWidth: 1,
+        borderColor: '#F1F1F1',
+        backgroundColor: '#0000005c',
+        borderRadius: 15,
+    },
 });

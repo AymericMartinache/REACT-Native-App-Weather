@@ -8,7 +8,7 @@ import { styles } from './Container.style';
 // ASSETS
 import background from '../../assets/img/background-app.png';
 
-export function Container({ children }) {
+export default function Container({ children }) {
     return (
         <ImageBackground
             source={background}
