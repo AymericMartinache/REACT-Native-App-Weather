@@ -1,25 +1,21 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-    container: {
+    header: {
+        flexDirection: 'row',
+    },
+
+    back_btn: {
+        width: 30,
+    },
+
+    header_texts: {
         flex: 1,
-    },
-
-    text: {
-        fontSize: 60,
-        color: '#F1F1F1',
-    },
-
-    basic: { flex: 1 },
-
-    searchbar: {
-        flex: 2,
         alignItems: 'center',
-        justifyContent: 'center',
-        borderWidth: 2,
+        marginRight: 30,
     },
 
-    meteo_advanced: {
-        flex: 1,
+    subtitle: {
+        fontSize: 20,
     },
 });

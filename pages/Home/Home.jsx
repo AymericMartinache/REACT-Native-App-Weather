@@ -85,6 +85,7 @@ export default function Home() {
         console.log('FETCH CITY');
         const cityResponse = await MeteoAPI.fetchCityFromCoords(coordinates);
         setCity(cityResponse);
+        // console.log(city);
     }
 
     function goToForecastPage() {
