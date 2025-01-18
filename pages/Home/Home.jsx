@@ -1,5 +1,5 @@
 // REACT NATIVE
-import { Text, View } from 'react-native';
+import { Alert, Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 // EXPO
@@ -90,6 +90,18 @@ export default function Home() {
         console.log('City => ', cityResponse);
     }
 
+    // Fetch des coordonnées
+    async function fetchCoordsByCity(city) {
+        try {
+            console.log('FETCH COORDS FOR : ', city);
+            const coords = await MeteoAPI.fetchCoordsFromCity(city);
+            setCoords(coords);
+            console.log('Coords => ', coords);
+        } catch (error) {
+            Alert.alert('Oups !', error);
+        }
+    }
+
     function goToForecastPage() {
         nav.navigate('Forecast', {
             city,
@@ -111,9 +123,11 @@ export default function Home() {
                             onPress={goToForecastPage}
                         />
                     </View>
+
                     <View style={styles.searchbar_container}>
-                        <Searchbar />
+                        <Searchbar onSubmit={fetchCoordsByCity} />
                     </View>
+
                     <View style={styles.meteo_advanced}>
                         <Meteo_advanced
                             wind={currentWeather.windspeed}

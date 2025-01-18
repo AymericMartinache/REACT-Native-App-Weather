@@ -5,12 +5,9 @@ import { styles } from './Searchbar.style';
 import { TextInput } from 'react-native';
 
 export default function Searchbar({ onSubmit }) {
-    function onSubmit() {
-        console.log('Submit');
-    }
     return (
         <TextInput
-            onSubmitEditing={onSubmit}
+            onSubmitEditing={(e) => onSubmit(e.nativeEvent.text)}
             style={styles.input}
             placeholder="🔍 Rechercher une ville..."
         />
