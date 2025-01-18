@@ -5,21 +5,21 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginHorizontal: 10,
+        margin: 10,
     },
 
     image: {
-        width: 50,
-        height: 50,
+        width: 60,
+        height: 60,
+        marginRight: 10,
     },
 
-    day: { fontSize: 20 },
+    day: { fontSize: 25, flex: 1 },
 
-    date: { fontSize: 20 },
+    date: { fontSize: 25, flex: 1 },
 
     temperature: {
-        width: 70,
+        width: 100,
         textAlign: 'right',
-        fontSize: 30,
     },
 });

@@ -6,13 +6,18 @@ export const styles = StyleSheet.create({
     },
 
     back_btn: {
-        width: 30,
+        width: 50,
+        height: 50,
     },
 
     header_texts: {
         flex: 1,
         alignItems: 'center',
-        marginRight: 30,
+        marginRight: 50,
+    },
+
+    city: {
+        textAlign: 'center',
     },
 
     subtitle: {

@@ -1,9 +1,13 @@
 // REACT NATIVE
 import { TouchableOpacity, View } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
+import { Image } from 'react-native';
 
 // STYLES
 import { styles } from './Forecast.style';
+
+// ASSETS
+import backBtn from '../../assets/icons/back-btn.png';
 
 // COMPONENTS
 import Txt from '../../components/Txt/Txt';
@@ -22,7 +26,7 @@ export default function Forecast({}) {
 
     const backButton = (
         <TouchableOpacity onPress={() => nav.goBack()} style={styles.back_btn}>
-            <Txt style={{ fontSize: 40 }}>↩︎</Txt>
+            <Image source={backBtn} style={styles.back_btn} />
         </TouchableOpacity>
     );
 
@@ -30,7 +34,7 @@ export default function Forecast({}) {
         <View style={styles.header}>
             {backButton}
             <View style={styles.header_texts}>
-                <Txt>{params.city}</Txt>
+                <Txt style={styles.city}>{params.city}</Txt>
 
                 <Txt style={styles.subtitle}>Prévisions sur 7 jours</Txt>
             </View>

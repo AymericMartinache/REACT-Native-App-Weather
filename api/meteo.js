@@ -1,4 +1,4 @@
-// AXIOX
+// AXIOS
 import axios from 'axios';
 
 export class MeteoAPI {
@@ -15,21 +15,20 @@ export class MeteoAPI {
         }
     }
 
-    // Récupération de la ville
+    // Récupération d'une ville depuis des coords
     static async fetchCityFromCoords(coords) {
         const lat = coords.lat.toString().replace(',', '.');
         const lng = coords.lng.toString().replace(',', '.');
         try {
             const {
-                address: { city, village, town, state },
-                display_name,
+                address: { city, village, town, state, country },
             } = (
                 await axios.get(
                     `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`
                 )
             ).data;
 
-            return city || village || town || state;
+            return city || village || town || state || country || ' - ';
         } catch (error) {
             console.log('Error : ', error, 'Error message : ', error.message);
         }
