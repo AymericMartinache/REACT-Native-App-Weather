@@ -20,7 +20,7 @@ export const WEATHER_INTERPRATIONS = [
         image: require('../assets/meteo_img/snow.png'),
     },
     {
-        codes: [96, 99],
+        codes: [95, 96, 99],
         label: 'Orageux',
         image: require('../assets/meteo_img/thunder.png'),
     },

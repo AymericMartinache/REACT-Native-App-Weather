@@ -17,16 +17,19 @@ export class MeteoAPI {
 
     // Récupération de la ville
     static async fetchCityFromCoords(coords) {
+        const lat = coords.lat.toString().replace(',', '.');
+        const lng = coords.lng.toString().replace(',', '.');
         try {
             const {
-                address: { city, village, town },
+                address: { city, village, town, state },
+                display_name,
             } = (
                 await axios.get(
-                    `https://nominatim.openstreetmap.org/reverse?format=json&lat=${coords.lat}&lon=${coords.lng}`
+                    `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`
                 )
             ).data;
 
-            return city || village || town;
+            return city || village || town || state;
         } catch (error) {
             console.log('Error : ', error, 'Error message : ', error.message);
         }
@@ -43,7 +46,7 @@ export class MeteoAPI {
 
             return { lat, lng };
         } catch (error) {
-            throw 'Aucunes coordonnées trouvées pour la recherche : ' + city;
+            throw `Aucunes coordonnées trouvées pour la recherche : "${city}"`;
         }
     }
 }

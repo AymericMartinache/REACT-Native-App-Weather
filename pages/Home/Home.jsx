@@ -64,7 +64,9 @@ export default function Home() {
 
             // Sinon on ajoute des valeurs par defaut
             console.log('Permission => ', status);
-            console.log('Location => ', location);
+            console.log(
+                `Location =>  lat : ${location.coords.latitude} lng : ${location.coords.longitude}`
+            );
         } else {
             setCoords({
                 lat: '48.8555555',
@@ -80,11 +82,14 @@ export default function Home() {
             coordinates
         );
         setWeather(weatherResponse);
+        console.log('Weather => ', weatherResponse.current_weather);
     }
 
     // Fetch de la ville
     async function fetchCity(coordinates) {
-        console.log('FETCH CITY');
+        console.log(
+            `FETCH CITY WITH COORDS : ${coordinates.lat} / ${coordinates.lng} `
+        );
         const cityResponse = await MeteoAPI.fetchCityFromCoords(coordinates);
         setCity(cityResponse);
         console.log('City => ', cityResponse);
@@ -98,7 +103,7 @@ export default function Home() {
             setCoords(coords);
             console.log('Coords => ', coords);
         } catch (error) {
-            Alert.alert('Oups !', error);
+            Alert.alert('‼️ Oups !', error);
         }
     }
 
@@ -113,7 +118,7 @@ export default function Home() {
         <Container>
             {currentWeather ? (
                 <>
-                    <View style={styles.meteo_basic}>
+                    <View style={styles.meteo_basic} key={Math.random()}>
                         <Meteo_basic
                             temp={Math.round(currentWeather?.temperature)}
                             city={city}

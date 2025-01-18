@@ -16,8 +16,8 @@ export const styles = StyleSheet.create({
     },
 
     weather_label: {
-        transform: [{ rotate: '-90deg' }],
         alignSelf: 'flex-end',
+        transform: [{ rotate: '-90deg' }],
         fontSize: 20,
     },
 
