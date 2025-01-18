@@ -7,9 +7,9 @@ export const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#5b5b5b',
         backgroundColor: '#F1F1F1',
-        borderRadius: 15,
+        borderRadius: 99,
         paddingHorizontal: 20,
-        fontSize: 25,
+        fontSize: 20,
         fontFamily: 'Alata-Regular',
         shadowColor: '#000',
         shadowOffset: {
@@ -20,6 +20,7 @@ export const styles = StyleSheet.create({
         shadowRadius: 9.51,
 
         elevation: 15,
+
         color: '#111',
     },
 });

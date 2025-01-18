@@ -2,10 +2,8 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-    container: { flex: 1 },
-
     city: {
-        fontSize: 50,
+        fontSize: 30,
     },
 
     clock: {
@@ -13,9 +11,13 @@ export const styles = StyleSheet.create({
         fontSize: 14,
     },
 
+    weather: {
+        alignItems: 'flex-end',
+    },
+
     weather_label: {
-        alignSelf: 'flex-end',
         transform: [{ rotate: '-90deg' }],
+        alignSelf: 'flex-end',
         fontSize: 20,
     },
 

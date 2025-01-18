@@ -58,12 +58,13 @@ export default function Home() {
         if (status === 'granted') {
             const location = await getCurrentPositionAsync();
             setCoords({
-                lat: location.coords.latitude,
-                lng: location.coords.longitude,
+                lat: location.coords.latitude.toString().replace(',', '.'),
+                lng: location.coords.longitude.toString().replace(',', '.'),
             });
 
-            console.log('Permission => ', status);
             // Sinon on ajoute des valeurs par defaut
+            console.log('Permission => ', status);
+            console.log('Location => ', location);
         } else {
             setCoords({
                 lat: '48.8555555',
@@ -86,7 +87,7 @@ export default function Home() {
         console.log('FETCH CITY');
         const cityResponse = await MeteoAPI.fetchCityFromCoords(coordinates);
         setCity(cityResponse);
-        // console.log(city);
+        console.log('City => ', cityResponse);
     }
 
     function goToForecastPage() {

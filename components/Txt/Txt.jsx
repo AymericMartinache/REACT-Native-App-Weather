@@ -1,15 +1,24 @@
 // REACT NATIVE
-import { Text, View } from 'react-native';
+import { Text, useWindowDimensions, View } from 'react-native';
 
 // STYLES
 import { styles } from './Txt.style';
 
 export default function Txt({ children, style }) {
+    const { height } = useWindowDimensions();
+    const fontSize = style?.fontSize || styles.text.fontSize;
+
     return (
-        <>
-            <View style={styles.container}>
-                <Text style={[styles.text, style]}>{children}</Text>
-            </View>
-        </>
+        <Text
+            style={[
+                styles.text,
+                style,
+                {
+                    fontSize: fontSize * 0.00118 * height,
+                },
+            ]}
+        >
+            {children}
+        </Text>
     );
 }
