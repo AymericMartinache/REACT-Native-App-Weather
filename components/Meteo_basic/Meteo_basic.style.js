@@ -11,6 +11,12 @@ export const styles = StyleSheet.create({
         fontSize: 14,
     },
 
+    clock_txt: {
+        fontFamily: 'Alata-Regular',
+        color: '#F1F1F1',
+        fontSize: 16,
+    },
+
     weather: {
         alignItems: 'flex-end',
     },

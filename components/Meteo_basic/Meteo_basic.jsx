@@ -8,11 +8,19 @@ import { styles } from './Meteo_basic.style';
 import Txt from '../Txt/Txt';
 import Clock from '../Clock/Clock';
 
-export default function Meteo_basic({ temp, city, interpretation, onPress }) {
+export default function Meteo_basic({
+    temp,
+    city,
+    interpretation,
+    onPress,
+    localTime,
+}) {
     return (
         <>
             <View style={styles.clock}>
-                <Clock />
+                <View style={styles.clock}>
+                    <Txt style={styles.clock_txt}>{localTime}</Txt>{' '}
+                </View>
             </View>
 
             <View>

@@ -23,6 +23,7 @@ import { MeteoAPI } from '../../api/meteo';
 
 // SERVICES
 import { getWeatherInterpretation } from '../../services/meteo-service';
+import { convertTimeFromAPI } from '../../services/date-service';
 
 export default function Home() {
     // STATES
@@ -47,6 +48,10 @@ export default function Home() {
     }, [coords]);
 
     const currentWeather = weather?.current_weather;
+    const localTime = currentWeather?.time
+        ? convertTimeFromAPI(currentWeather.time)
+        : '--:--';
+    console.log(localTime);
 
     // Récupéraion des coordonnées GPS
     async function getUserCoords() {
@@ -107,6 +112,7 @@ export default function Home() {
         }
     }
 
+    // Navigation
     function goToForecastPage() {
         nav.navigate('Forecast', {
             city,
@@ -125,6 +131,7 @@ export default function Home() {
                             interpretation={getWeatherInterpretation(
                                 currentWeather.weathercode
                             )}
+                            localTime={localTime}
                             onPress={goToForecastPage}
                         />
                     </View>
