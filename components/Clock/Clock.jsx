@@ -12,7 +12,7 @@ export default function Clock() {
     // STATES
     const [time, setTime] = useState(nowToHHMM());
 
-    // USE EFFEXT
+    // USE EFFECT
     useEffect(() => {
         const interval = setInterval(() => {
             setTime(nowToHHMM());

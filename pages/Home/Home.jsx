@@ -30,6 +30,7 @@ export default function Home() {
     const [city, setCity] = useState();
     const [weather, setWeather] = useState();
 
+    // NAV
     const nav = useNavigation();
 
     // USE EFFECT
@@ -107,6 +108,7 @@ export default function Home() {
         }
     }
 
+    // Navigation vers la page détails
     function goToForecastPage() {
         nav.navigate('Forecast', {
             city,

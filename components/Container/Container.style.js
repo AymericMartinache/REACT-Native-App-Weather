@@ -1,3 +1,4 @@
+// STYLES
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
@@ -10,6 +11,6 @@ export const styles = StyleSheet.create({
         padding: 20,
     },
     img: {
-        opacity: 0.7,
+        opacity: 0.6,
     },
 });

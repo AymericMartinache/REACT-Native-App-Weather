@@ -14,6 +14,7 @@ import Home from './pages/Home/Home';
 import Forecast from './pages/Forecast/Forecast';
 
 const Stack = createNativeStackNavigator();
+
 const newTheme = {
     colors: {
         background: 'transparent',
@@ -26,7 +27,7 @@ export default function App() {
         'Alata-Regular': AlataRegular,
     });
 
-    console.log('Font loaded : ', isFontLoaded);
+    // console.log('Font loaded : ', isFontLoaded);
 
     return (
         <NavigationContainer theme={newTheme}>
@@ -36,7 +37,7 @@ export default function App() {
                     initialRouteName="Home"
                     screenOptions={{
                         headerShown: false,
-                        animation: 'slide_from_bottom',
+                        animation: 'slide_from_left',
                     }}
                 >
                     {/* Pages */}

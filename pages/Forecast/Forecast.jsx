@@ -19,9 +19,11 @@ import { getWeatherInterpretation } from '../../services/meteo-service';
 import { dateToDDMM, DAYS } from '../../services/date-service';
 
 export default function Forecast({}) {
+    // Utilisation du hook useRoute pour récupérer les paramètres de la route actuelle.
     const { params } = useRoute();
     // console.log('params :', params);
 
+    // NAV
     const nav = useNavigation();
 
     const backButton = (

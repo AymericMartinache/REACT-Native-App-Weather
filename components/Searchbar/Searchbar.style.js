@@ -11,6 +11,8 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 20,
         fontSize: 20,
         fontFamily: 'Alata-Regular',
+
+        // Shadow
         shadowColor: '#000',
         shadowOffset: {
             width: 0,
@@ -18,9 +20,7 @@ export const styles = StyleSheet.create({
         },
         shadowOpacity: 0.43,
         shadowRadius: 9.51,
-
         elevation: 15,
-
         color: '#111',
     },
 });

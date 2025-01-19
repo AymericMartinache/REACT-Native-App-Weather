@@ -1,3 +1,6 @@
+// Tableau des jours
+export const DAYS = ['LUN', 'MAR', 'MER', 'JEU', 'VEN', 'SAM', 'DIM'];
+
 // Récupère l'heure actuelle
 export function nowToHHMM() {
     const date = new Date();
@@ -8,8 +11,7 @@ export function nowToHHMM() {
         .padStart(2, '0')}`;
 }
 
-export const DAYS = ['LUN', 'MAR', 'MER', 'JEU', 'VEN', 'SAM', 'DIM'];
-
+// Convertion de la date au format DD/MM
 export function dateToDDMM(date) {
     return `${date.getDate().toString().padStart(2, '0')}/${(
         date.getMonth() + 1

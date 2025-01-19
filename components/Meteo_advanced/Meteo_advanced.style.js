@@ -19,6 +19,7 @@ export const styles = StyleSheet.create({
     text: { fontSize: 15 },
 });
 
+// Création de composants dans le style
 export function StyledContainer({ children }) {
     return <View style={{ alignItems: 'center' }}>{children}</View>;
 }

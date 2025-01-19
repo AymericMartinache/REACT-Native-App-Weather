@@ -1,3 +1,4 @@
+// Intérprétation des codes météo
 export const WEATHER_INTERPRATIONS = [
     {
         codes: [0],
