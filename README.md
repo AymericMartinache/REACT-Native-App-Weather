@@ -1,6 +1,6 @@
-# 🌤️ Weather App - Votre météo en un clin d'œil !
+# 🌤️ Weather App
 
-L'application **Weather App** est conçue pour vous fournir des informations météo précises et intuitives. Développée avec **React Native** et optimisée avec **Expo**, elle offre des fonctionnalités complètes pour consulter la météo actuelle, rechercher une ville et explorer les prévisions sur 7 jours.
+L'application **Weather App** est conçue pour fournir des informations météo précises et intuitives. Développée avec **React Native** et optimisée avec **Expo**, elle offre des fonctionnalités complètes pour consulter la météo actuelle, rechercher une ville et explorer les prévisions sur 7 jours.
 
 ---
 
@@ -41,7 +41,6 @@ L'application **Weather App** est conçue pour vous fournir des informations mé
 -   **expo-font** : Chargement de la police personnalisée utilisée dans l'application.
 -   **expo-location** : Accès à la géolocalisation de l'utilisateur.
 -   **React Navigation** : Gestion des pages et navigation entre les écrans.
--   **expo-status-bar** : Personnalisation de la barre d'état du téléphone.
 
 ---
 
@@ -153,7 +152,9 @@ L'application **Weather App** est conçue pour vous fournir des informations mé
 
 -   **Node.js** et **npm** installés sur votre machine.
 -   **Expo CLI** installé globalement :
+    ```bash
     npm install -g expo-cli
+    ```
 
 ### Étapes pour démarrer
 
