@@ -4,7 +4,7 @@
         "slug": "weather",
         "version": "1.0.0",
         "orientation": "portrait",
-        "icon": "./assets/meteo_img/clouds.png",
+        "icon": "./assets/icons/icon-meteo.png",
         "userInterfaceStyle": "light",
         "newArchEnabled": true,
         "splash": {
