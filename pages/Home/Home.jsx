@@ -51,8 +51,6 @@ export default function Home() {
 
     // Récupéraion des coordonnées GPS
     async function getUserCoords() {
-        console.log('GET PERMISSIONS');
-
         let { status } = await requestForegroundPermissionsAsync();
 
         // On vérifie que l'utilisateur accèpte la géoloc
@@ -64,10 +62,6 @@ export default function Home() {
             });
 
             // Sinon on ajoute des valeurs par defaut
-            console.log('Permission => ', status);
-            console.log(
-                `Location =>  lat : ${location.coords.latitude} lng : ${location.coords.longitude}`
-            );
         } else {
             setCoords({
                 lat: '48.8555555',
@@ -78,31 +72,23 @@ export default function Home() {
 
     // Fetch de la météo
     async function fetchWeather(coordinates) {
-        console.log('FETCH WEATHER');
         const weatherResponse = await MeteoAPI.fetchWeatherFromCoords(
             coordinates
         );
         setWeather(weatherResponse);
-        console.log('Weather => ', weatherResponse.current_weather);
     }
 
     // Fetch de la ville
     async function fetchCity(coordinates) {
-        console.log(
-            `FETCH CITY WITH COORDS : ${coordinates.lat} / ${coordinates.lng} `
-        );
         const cityResponse = await MeteoAPI.fetchCityFromCoords(coordinates);
         setCity(cityResponse);
-        console.log('City => ', cityResponse);
     }
 
     // Fetch des coordonnées
     async function fetchCoordsByCity(city) {
         try {
-            console.log('FETCH COORDS FOR : ', city);
             const coords = await MeteoAPI.fetchCoordsFromCity(city);
             setCoords(coords);
-            console.log('Coords => ', coords);
         } catch (error) {
             Alert.alert('‼️ Oups !', error);
         }

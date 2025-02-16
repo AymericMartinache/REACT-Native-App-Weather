@@ -1,0 +1,14 @@
+{
+  "name": "server-notifications",
+  "version": "1.0.0",
+  "description": "serveur de notifications push",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "m-rik",
+  "license": "ISC",
+  "dependencies": {
+    "expo-server-sdk": "^3.14.0"
+  }
+}
